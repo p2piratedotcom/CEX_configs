@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "protocol": 1,
+  "license_sha256": "6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e",
+  "plugins": [
+    {
+      "venue": "GATE",
+      "version": "0.1.0",
+      "config": "plugins/gate/config.json",
+      "adapter": "plugins/gate/adapter.zip",
+      "config_sha256": "968e5d4a0c381273f75a8141848103bda3db86f1dc9bbf419bda8dd05a8d8022",
+      "adapter_sha256": "52b2125973ddaebcc082d2ef4af9ecb0aeed3a0f056d7ad1e2ba83b7e95487eb"
+    },
+    {
+      "venue": "MEXC",
+      "version": "0.1.0",
+      "config": "plugins/mexc/config.json",
+      "adapter": "plugins/mexc/adapter.zip",
+      "config_sha256": "a3f894e7e9d4d66edd2f57f3f6d68d0e272aabcaabe008972f4dcefb36953381",
+      "adapter_sha256": "4a209bc0b9ed92cb0c7a6f1ec7b67e9e5217cf12af90e348423f79f26f7bc0ae"
+    }
+  ]
+}
