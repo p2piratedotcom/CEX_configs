@@ -21,13 +21,14 @@ supported; a narrower account variant or a future versioned protocol may allow i
 | Bitget | Deferred; no plugin published | Mandatory ACCESS-PASSPHRASE; requires an explicit credential contract/wallet extension. | [REST authentication](https://www.bitget.com/docs/classic/rest-api) |
 | Bybit | Deferred; no plugin published | Current unified accounts have liabilities, borrowing and cross/portfolio collateral. Deprecated Spot free/locked fields cannot stand in for cash available to trade. USD collateral or transferable balances are not the same as per-asset Spot trading balances; support needs an explicit account/collateral policy or a separately validated cash-only subset. | [Wallet balance](https://bybit-exchange.github.io/docs/v5/account/wallet-balance), [transferable balances](https://bybit-exchange.github.io/docs/v5/asset/balance/all-balance), [orders](https://bybit-exchange.github.io/docs/v5/order/create-order) |
 | Bithumb | Deferred; no plugin published | The public market list on the review date contained KRW and BTC quote markets, no USDT quote route. Using another hedge anchor requires an engine policy/protocol extension. JWT is adapterable and not a blocker. | [Market discovery](https://apidocs.bithumb.com/reference/거래-대상-목록-조회), [public market list](https://api.bithumb.com/v1/market/all) |
+| Binance | Experimental plugin | Binance.com HMAC cash Spot only. Fixed price/quantity grids; additional dynamic filters checked with the safe order/test endpoint, no price rewriting. Durable client-ID journal and native-ID reconciliation handle changed IDs after cancellation. Margin, futures, regional APIs and asymmetric keys are excluded. | [REST/auth](https://developers.binance.com/docs/binance-spot-api-docs/rest-api), [filters](https://developers.binance.com/docs/binance-spot-api-docs/filters), [orders/test](https://developers.binance.com/docs/binance-spot-api-docs/rest-api/trading-endpoints) |
 
 Bithumb discovery was unauthenticated: 482 KRW and 13 BTC markets on 2026-10-04.
 This records a discovery observation, not an invariant about future listings.
 
 ## Status and acceptance limits
 
-**The three new plugins are experimental and have not been tested against live
+**All experimental plugins are experimental and have not been tested against live
 exchange accounts, exchange sandboxes or funded trades.** Their display names
 include `experimental; untested`, and public settings record this status.
 Documentation review, syntax/package checks and the existing catalog CI are not
@@ -40,9 +41,10 @@ separate explicit authorization.
   cancellation when live trading is explicitly enabled. A successful balance
   read is not proof that the key has trading permission. No withdrawal or
   transfer permissions/endpoints are used.
-- Preflight is local, read-only validation of native precision/minimums; it is
-  not proof of exchange acceptance or API write permission. It never places a
-  funded order to simulate a test.
+- CoinEx/WhiteBIT/Poloniex preflight is local, read-only validation, not proof
+  of exchange acceptance or write permission. Binance additionally calls its
+  documented no-matching-engine order/test endpoint. Neither path creates a
+  funded order to simulate validation.
 - Stable native IDs, atomic private journals and no automatic write replay.
   Unknown/expired/missing remote history fails closed for manual reconciliation.
 - HTTP responses, total RPC time, source bundles and lookup pages are bounded.
