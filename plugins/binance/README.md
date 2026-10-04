@@ -4,7 +4,9 @@ No live/sandbox account or funded-trade acceptance has been performed. This is
 Binance.com Spot REST V3 with HMAC API key + secret; Binance.US, RSA/Ed25519 keys,
 margin, futures, lending, transfers and SOR are not advertised. Only supported
 USDT quote markets with online Spot LIMIT/GTC orders are eligible. Adding the
-exchange does not make an unlisted coin/pair available.
+exchange does not make an unlisted coin/pair available. Non-ASCII native symbols outside the
+Spot v1 canonical ticker contract are excluded without breaking discovery of
+ordinary pairs (two such USDT listings observed on 2026-10-04).
 
 - HMAC-SHA256 signs the exact URL-encoded parameters, millisecond timestamp and
   configured recvWindow; wallet Tor/direct routing is mandatory. Region, API/IP

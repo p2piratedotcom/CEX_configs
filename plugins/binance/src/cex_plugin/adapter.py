@@ -2,6 +2,7 @@
 
 import hashlib
 import hmac
+import re
 from decimal import Decimal
 from urllib.parse import urlencode
 
@@ -52,7 +53,8 @@ class Binance(Base):
     @staticmethod
     def enabled(row):
         return (
-            row.get("status") == "TRADING"
+            bool(re.fullmatch(r"[A-Z0-9]{1,28}USDT", str(row.get("symbol", ""))))
+            and row.get("status") == "TRADING"
             and row.get("isSpotTradingAllowed") is True
             and row.get("quoteAsset") == "USDT"
             and "LIMIT" in row.get("orderTypes", ())
