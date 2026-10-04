@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "protocol": "p2pirate-spot-v1",
+  "version": "0.1.0",
+  "venue": "WHITEBIT",
+  "display_name": "WhiteBIT (experimental; untested)",
+  "base_url": "https://whitebit.com",
+  "legacy_keys": false,
+  "private_read_timeout": 8.0,
+  "time_sync_budget_ms": 12000,
+  "recv_window_ms": 10000,
+  "timestamp_error_codes": [],
+  "symbols_error_codes": [],
+  "taker_fee": "0.001",
+  "credential_fields": [
+    "api_key",
+    "api_secret"
+  ],
+  "settings": {
+    "status": "experimental",
+    "live_account_tested": false,
+    "scope": "cash-spot-usdt-limit",
+    "documentation": "https://docs.whitebit.com/api-reference/authentication"
+  }
+}

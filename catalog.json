@@ -26,6 +26,14 @@
       "adapter": "plugins/mexc/adapter.zip",
       "config_sha256": "a3f894e7e9d4d66edd2f57f3f6d68d0e272aabcaabe008972f4dcefb36953381",
       "adapter_sha256": "4a209bc0b9ed92cb0c7a6f1ec7b67e9e5217cf12af90e348423f79f26f7bc0ae"
+    },
+    {
+      "venue": "WHITEBIT",
+      "version": "0.1.0",
+      "config": "plugins/whitebit/config.json",
+      "adapter": "plugins/whitebit/adapter.zip",
+      "config_sha256": "c3cbcc303e7af07045f8631657bfa5cccb3e32b959d38de3d03306b3faaf60bb",
+      "adapter_sha256": "70741aa463541bbed197502f5f928e5fc19355382114999699e7e11cf943a253"
     }
   ]
 }
