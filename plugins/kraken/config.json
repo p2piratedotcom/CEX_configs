@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "protocol": "p2pirate-spot-v1",
+  "version": "0.1.0",
+  "venue": "KRAKEN",
+  "display_name": "Kraken (experimental; untested)",
+  "base_url": "https://api.kraken.com",
+  "legacy_keys": false,
+  "private_read_timeout": 8.0,
+  "time_sync_budget_ms": 12000,
+  "recv_window_ms": 10000,
+  "timestamp_error_codes": [],
+  "symbols_error_codes": [],
+  "taker_fee": "0.004",
+  "credential_fields": [
+    "api_key",
+    "api_secret"
+  ],
+  "settings": {
+    "status": "experimental",
+    "live_account_tested": false,
+    "scope": "cash-spot-usdt-limit",
+    "documentation": "https://docs.kraken.com/api-reference/trading/add-order"
+  }
+}
