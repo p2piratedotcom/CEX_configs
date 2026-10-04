@@ -17,7 +17,7 @@ def main():
     plugins = []
     for directory in sorted((ROOT / "plugins").iterdir()):
         config = json.loads((directory / "config.json").read_text())
-        if config["venue"] in ("COINEX", "WHITEBIT", "POLONIEX"):
+        if config["venue"] in ("COINEX", "WHITEBIT", "POLONIEX", "BINANCE"):
             # Authoritative plugin-local helpers; existing MEXC/Gate remain unchanged.
             for helper in sorted((ROOT / "shared" / "cex_plugin").glob("*.py")):
                 shutil.copyfile(helper, directory / "src" / "cex_plugin" / helper.name)

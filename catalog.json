@@ -4,6 +4,14 @@
   "license_sha256": "6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e",
   "plugins": [
     {
+      "venue": "BINANCE",
+      "version": "0.1.0",
+      "config": "plugins/binance/config.json",
+      "adapter": "plugins/binance/adapter.zip",
+      "config_sha256": "156402fa4c233717aaaf62ae3107972ae618e17314a7362fd946709cbb4abb35",
+      "adapter_sha256": "a905d47f8805a0ce5994a5b8323d275675062f6f154d86a38878eb24034d2058"
+    },
+    {
       "venue": "COINEX",
       "version": "0.1.0",
       "config": "plugins/coinex/config.json",
