@@ -23,12 +23,12 @@ The original catalog contains **MEXC Spot V3** and **Gate Spot V4**. Their adapt
 were extracted from `p2piratedotcom/MM_Engine` at
 `e365642c3fc0395977b69f9ce02e1d8765243813` (Unlicense). The API implementations,
 signing and response normalization are preserved; imports/types were moved into
-the plugin namespace and a configuration-based factory was added. Binance is now included as an experimental plugin. Kraken remains under
-compatibility review and is not advertised as supported in this snapshot.
+the plugin namespace and a configuration-based factory was added. Binance and Kraken are now included as experimental plugins, with the
+account/product boundaries documented below.
 
 ## Experimental additions
 
-The new exchange batch adds CoinEx, WhiteBIT, Poloniex and Binance as separate plugins.
+The new exchange batch adds CoinEx, WhiteBIT, Poloniex, Binance and Kraken as separate plugins.
 Each is explicitly **experimental and not tested against live accounts, sandboxes
 or funded trades**; existing catalog/MEXC/Gate CI does not validate their APIs.
 Only plugins present in `catalog.json` are downloadable in the current snapshot.

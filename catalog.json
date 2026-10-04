@@ -28,6 +28,14 @@
       "adapter_sha256": "52b2125973ddaebcc082d2ef4af9ecb0aeed3a0f056d7ad1e2ba83b7e95487eb"
     },
     {
+      "venue": "KRAKEN",
+      "version": "0.1.0",
+      "config": "plugins/kraken/config.json",
+      "adapter": "plugins/kraken/adapter.zip",
+      "config_sha256": "abef676f1b818576b1b3ae4600d9c26151eaf05f35c881e403206cd09d717ad4",
+      "adapter_sha256": "879266e05b2c17ade436019dc7fe605e53a8df2cba0f328564ce70c76d1e4a97"
+    },
+    {
       "venue": "MEXC",
       "version": "0.1.0",
       "config": "plugins/mexc/config.json",

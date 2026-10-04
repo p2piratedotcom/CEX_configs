@@ -22,9 +22,27 @@ supported; a narrower account variant or a future versioned protocol may allow i
 | Bybit | Deferred; no plugin published | Current unified accounts have liabilities, borrowing and cross/portfolio collateral. Deprecated Spot free/locked fields cannot stand in for cash available to trade. USD collateral or transferable balances are not the same as per-asset Spot trading balances; support needs an explicit account/collateral policy or a separately validated cash-only subset. | [Wallet balance](https://bybit-exchange.github.io/docs/v5/account/wallet-balance), [transferable balances](https://bybit-exchange.github.io/docs/v5/asset/balance/all-balance), [orders](https://bybit-exchange.github.io/docs/v5/order/create-order) |
 | Bithumb | Deferred; no plugin published | The public market list on the review date contained KRW and BTC quote markets, no USDT quote route. Using another hedge anchor requires an engine policy/protocol extension. JWT is adapterable and not a blocker. | [Market discovery](https://apidocs.bithumb.com/reference/거래-대상-목록-조회), [public market list](https://api.bithumb.com/v1/market/all) |
 | Binance | Experimental plugin | Binance.com HMAC cash Spot only. Fixed price/quantity grids; additional dynamic filters checked with the safe order/test endpoint, no price rewriting. Durable client-ID journal and native-ID reconciliation handle changed IDs after cancellation. Margin, futures, regional APIs and asymmetric keys are excluded. | [REST/auth](https://developers.binance.com/docs/binance-spot-api-docs/rest-api), [filters](https://developers.binance.com/docs/binance-spot-api-docs/filters), [orders/test](https://developers.binance.com/docs/binance-spot-api-docs/rest-api/trading-endpoints) |
+| Kraken | Experimental plugin | Cash Spot USDT LIMIT/GTC with fixed tick_size/lot grids, base64-secret HMAC and serialized persisted nonce. Native UUID client IDs and txid recovery; actual fill fee asset read from ledgers rather than assumed. Credit buying power, Earn/staking balances, margin, futures, xStocks and OTP keys excluded. | [Authentication](https://docs.kraken.com/exchange/guides/rest/authentication), [pairs](https://docs.kraken.com/api-reference/market-data/get-tradable-asset-pairs), [orders](https://docs.kraken.com/api-reference/trading/add-order), [ledger fees](https://docs.kraken.com/api-reference/account-data/query-ledgers) |
 
 Bithumb discovery was unauthenticated: 482 KRW and 13 BTC markets on 2026-10-04.
 This records a discovery observation, not an invariant about future listings.
+
+## Kraken / Binance public metadata observations
+
+On 2026-10-04, credential-free HTTPS reads of the official public catalogs and
+local normalization of the saved responses yielded **501** eligible Binance and
+**21** eligible Kraken ordinary Spot USDT markets. Non-online and unsupported
+product/ticker variants are excluded. These are observations, not promises of
+future market availability. Each eligible row produced positive, canonical
+Spot v1 executable grids and notional minima.
+
+Binance's default exchangeInfo response exceeded 8 MiB; disabling unnecessary
+permissionSets reduced it to 6,670,024 bytes. Two online non-ASCII USDT symbols
+fall outside the existing Spot v1 ticker contract and are skipped individually,
+without breaking discovery of other pairs. Kraken AssetPairs was 677,525 bytes.
+No credentials, account access, Tor acceptance or funded orders were involved.
+The released Linux v0.2.0 binary accepted both complete 15-method plugin bundles
+in no-network host handshakes; engine/wallet source remained unchanged.
 
 ## Status and acceptance limits
 
@@ -43,7 +61,8 @@ separate explicit authorization.
   transfer permissions/endpoints are used.
 - CoinEx/WhiteBIT/Poloniex preflight is local, read-only validation, not proof
   of exchange acceptance or write permission. Binance additionally calls its
-  documented no-matching-engine order/test endpoint. Neither path creates a
+  documented no-matching-engine order/test endpoint; Kraken calls AddOrder with
+  validate=true, which validates without creating an order. Neither path creates a
   funded order to simulate validation.
 - Stable native IDs, atomic private journals and no automatic write replay.
   Unknown/expired/missing remote history fails closed for manual reconciliation.
