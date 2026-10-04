@@ -9,7 +9,7 @@
       "config": "plugins/binance/config.json",
       "adapter": "plugins/binance/adapter.zip",
       "config_sha256": "156402fa4c233717aaaf62ae3107972ae618e17314a7362fd946709cbb4abb35",
-      "adapter_sha256": "3dbd6d422f7fa93348c77adb6260df0a965e4c6ab6e95cd19ba3251572ca510f"
+      "adapter_sha256": "4ded1fa13f2bb31099c2299c650ff42d42336f7a20422a0cc72c08566bcf60f4"
     },
     {
       "venue": "COINEX",

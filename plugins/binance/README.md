@@ -32,7 +32,9 @@ exchange does not make an unlisted coin/pair available.
   natively; time bounds are applied locally to order-specific fills.
 - One total RPC budget, no write retries or direct fallback. Bodies are bounded
   at 1 MiB except public exchangeInfo metadata (8 MiB); the normalized protocol
-  response remains bounded by the host at 1 MiB. HTTP 418/429 honors Retry-After
+  response remains bounded by the host at 1 MiB. Catalog requests disable
+  unused permissionSets: the default response exceeded 8 MiB on the review date,
+  while showPermissionSets=false returned 6,670,024 bytes. HTTP 418/429 honors Retry-After
   with at least 120 seconds local cooldown. Cooldown is process-local; API-key
   consumers outside this app must coordinate their limits independently.
 

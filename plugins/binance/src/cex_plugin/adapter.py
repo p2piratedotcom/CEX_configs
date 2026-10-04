@@ -62,7 +62,7 @@ class Binance(Base):
         data = self.send(
             "GET",
             "/api/v3/exchangeInfo",
-            params={"permissions": "SPOT"},
+            params={"permissions": "SPOT", "showPermissionSets": "false"},
             timeout=timeout,
             total_timeout=total_timeout,
         )
@@ -77,7 +77,7 @@ class Binance(Base):
         data = self.send(
             "GET",
             "/api/v3/exchangeInfo",
-            params={"symbol": value},
+            params={"symbol": value, "showPermissionSets": "false"},
             timeout=timeout,
             total_timeout=total_timeout,
         )
