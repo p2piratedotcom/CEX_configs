@@ -13,16 +13,31 @@ plugins/<venue>/config.json  public API settings and display name
 plugins/<venue>/src/cex_plugin/*.py  reviewable adapter source
 plugins/<venue>/adapter.zip  deterministic runtime bundle of that source
 tools/build_catalog.py       reproducible packaging and catalog generation
+shared/cex_plugin/*.py        authoritative helpers for experimental plugins
+docs/EXCHANGE_ASSESSMENT.md  compatibility decisions and primary sources
 tests/test_adapters.py       network-free contract fixtures
 PROTOCOL.md                  Spot v1 interface and onboarding requirements
 ```
 
-The initial catalog contains **MEXC Spot V3** and **Gate Spot V4**. Their adapters
+The original catalog contains **MEXC Spot V3** and **Gate Spot V4**. Their adapters
 were extracted from `p2piratedotcom/MM_Engine` at
 `e365642c3fc0395977b69f9ce02e1d8765243813` (Unlicense). The API implementations,
 signing and response normalization are preserved; imports/types were moved into
 the plugin namespace and a configuration-based factory was added. Kraken and
 Binance are planned, and are **not included or advertised as supported** yet.
+
+## Experimental additions
+
+The new exchange batch adds CoinEx, WhiteBIT and Poloniex as separate plugins.
+Each is explicitly **experimental and not tested against live accounts, sandboxes
+or funded trades**; existing catalog/MEXC/Gate CI does not validate their APIs.
+Only plugins present in `catalog.json` are downloadable in the current snapshot.
+See [the assessment of all ten requested exchanges](docs/EXCHANGE_ASSESSMENT.md)
+for exclusions, primary documentation and outstanding acceptance work.
+
+New plugin helpers are maintained in [shared/](shared/README.md) and copied into
+standalone source/bundles by the builder. This batch changes CEX_configs only:
+no engine, wallet or credential contract changes.
 
 ## Build and validation
 
