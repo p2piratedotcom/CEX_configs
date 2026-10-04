@@ -4,6 +4,14 @@
   "license_sha256": "6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e",
   "plugins": [
     {
+      "venue": "COINEX",
+      "version": "0.1.0",
+      "config": "plugins/coinex/config.json",
+      "adapter": "plugins/coinex/adapter.zip",
+      "config_sha256": "374d19b1209eecee1dd28fc53c6114453c7653763a5a0f3b731f62b0ed4dbd6c",
+      "adapter_sha256": "0e918a1eb1f288dcff9fd71fcfd9826c79ffd8740208c10473e3cfcf5781bb70"
+    },
+    {
       "venue": "GATE",
       "version": "0.1.0",
       "config": "plugins/gate/config.json",
