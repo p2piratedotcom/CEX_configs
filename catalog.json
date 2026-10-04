@@ -28,6 +28,14 @@
       "adapter_sha256": "4a209bc0b9ed92cb0c7a6f1ec7b67e9e5217cf12af90e348423f79f26f7bc0ae"
     },
     {
+      "venue": "POLONIEX",
+      "version": "0.1.0",
+      "config": "plugins/poloniex/config.json",
+      "adapter": "plugins/poloniex/adapter.zip",
+      "config_sha256": "dda5c612c95755ffb65c6dbbaed54de31a950d1073230250b32370a0907e080f",
+      "adapter_sha256": "2a4a35ad7385fd6c6e0a8c60e77aee4bb6d36deae67dcf123b0f377675277293"
+    },
+    {
       "venue": "WHITEBIT",
       "version": "0.1.0",
       "config": "plugins/whitebit/config.json",
