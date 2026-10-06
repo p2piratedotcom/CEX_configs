@@ -1,5 +1,13 @@
 # P2Pirate CEX plugins
 
+## Start here with an AI or as a new contributor
+
+Read [AGENTS.md](AGENTS.md) first, then the [AI/contributor project guide](docs/AI_PROJECT_GUIDE.md).
+They explain repository scope, architecture, safe setup, limits and cross-repository
+contracts. Relevant behavior/contract changes must review these guides in the same
+PR; use the guide-maintenance section of the PR template.
+
+
 Public configuration **and executable Spot adapters** for P2Pirate Trading Engine.
 API credentials are never committed here. The wallet stores each user's keys in
 Linux Secret Service, under their existing wallet profile.
