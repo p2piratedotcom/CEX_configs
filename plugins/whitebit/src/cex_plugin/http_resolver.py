@@ -5,7 +5,6 @@ from contextvars import ContextVar
 import socket
 import threading
 import time
-from aiohttp.resolver import ThreadedResolver
 
 active_trace = ContextVar('cex_http_trace', default=None)
 
@@ -45,12 +44,19 @@ class ResolverLoop:
         return await self.loop.run_in_executor(self.executor, resolve)
 
 
-class MeasuredResolver(ThreadedResolver):
+class MeasuredResolver:
     def __init__(self):
+        # Keep adapter import/configuration independent of the runtime-only
+        # aiohttp dependency; construct it only for an actual HTTP session.
+        from aiohttp.resolver import ThreadedResolver
         loop = asyncio.get_running_loop()
         self.executor = ThreadPoolExecutor(max_workers=2, thread_name_prefix='cex-resolver')
         # ThreadedResolver still owns normalization, flags and IPv6 handling.
-        super().__init__(loop=ResolverLoop(loop, self.executor))
+        self._resolver = ThreadedResolver(loop=ResolverLoop(loop, self.executor))
+
+    async def resolve(self, host, port=0, family=socket.AF_INET):
+        return await self._resolver.resolve(host, port, family)
 
     async def close(self):
+        await self._resolver.close()
         self.executor.shutdown(wait=False, cancel_futures=True)

@@ -2,7 +2,16 @@
 from dataclasses import dataclass
 import json
 from typing import Any, Protocol
-from .http_pool import PersistentTransport, configure_wallet_proxy, close_transports, diagnostic_capture
+from .http_pool import PersistentTransport, configure_wallet_proxy as _configure_proxy, close_transports, diagnostic_capture
+
+
+_wallet_proxy_url = None
+
+def configure_wallet_proxy(proxy_url):
+    # Preserve the legacy observable route state; authority stays in the pool.
+    _configure_proxy(proxy_url)
+    global _wallet_proxy_url
+    _wallet_proxy_url = proxy_url
 
 
 @dataclass(slots=True)
