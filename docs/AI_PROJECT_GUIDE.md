@@ -34,8 +34,9 @@ API credentials are private runtime bootstrap data, never catalog/config entries
 | `docs/EXCHANGE_ASSESSMENT.md` | Exchange/product decisions, references and outstanding acceptance |
 | Venue READMEs | Venue-specific semantics and limits |
 
-The builder's shared-helper set currently includes Binance, CoinEx, Kraken,
-Poloniex and WhiteBIT; MEXC/Gate have their preserved independent source. Inspect
+The builder copies the authoritative HTTP pool, diagnostics and resolver to all
+seven venues. MEXC/Gate keep their models/validation/state code and use the legacy
+wire-policy shim; the other venues receive the full shared-helper set. Inspect
 the actual builder before editing a generated copy. A shared source change needs
 version bumps for every already-published affected adapter, copied source, ZIPs
 and catalog regeneration together. Docs outside runtime files do not change ZIPs
@@ -132,6 +133,18 @@ The development override `P2PIRATE_CEX_PLUGIN_DIR` selects a local checkout; it 
 not normal release/update behavior and does not make candidate code trusted.
 Keep it separate from funded profiles and remove it before validating normal
 installation behavior.
+
+## Optional diagnostics
+
+MEXC 0.1.1 source adds bounded payload-free HTTP phase capture for an updated
+engine host; see [protocol extension](../PROTOCOL.md#optional-http-diagnostics-mexc-source-011).
+Old engines remain compatible but do not collect it. Regenerate the MEXC bundle
+and catalog digest together; rebuilding source is not deployment or funded
+acceptance. MEXC 0.1.2 source additionally reuses HTTP sessions and measures resolver
+executor queue separately from OS resolution; see the following protocol
+section for retry/route/close rules and attribution limits. The universal-core extension now supersedes that MEXC-only scope: all venues
+use the authoritative shared HTTP pool/diagnostics/resolver via generated
+compatibility shims. Keep venue signing/decoding/acceptance policies distinct.
 
 ## Change routing and further reading
 

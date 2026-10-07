@@ -48,6 +48,8 @@ five repositories. Do not attribute SDK/GUI changes to a different KDF binary.
   nonce state across restarts. Unavailable lookup is not proof an order is absent.
 - A local test-order validation must not place/cancel a real order. A catalog
   entry, green fixture suite or protocol support is not funded/live acceptance.
+- Every venue uses the authoritative `shared/cex_plugin/http_pool.py` transport;
+  use the generator for future adapters and preserve each wire-policy shim.
 - Edit authoritative shared helpers in `shared/cex_plugin/`; regenerate affected
   copies/bundles and version every already-published affected plugin. Source, ZIP
   and catalog hashes must move together for a runtime change.

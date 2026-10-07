@@ -17,10 +17,19 @@ def main():
     plugins = []
     for directory in sorted((ROOT / "plugins").iterdir()):
         config = json.loads((directory / "config.json").read_text())
-        if config["venue"] in ("COINEX", "WHITEBIT", "POLONIEX", "BINANCE", "KRAKEN"):
-            # Authoritative plugin-local helpers; existing MEXC/Gate remain unchanged.
-            for helper in sorted((ROOT / "shared" / "cex_plugin").glob("*.py")):
-                shutil.copyfile(helper, directory / "src" / "cex_plugin" / helper.name)
+        # All adapters use one authoritative HTTP core. Existing wire/error
+        # policies for MEXC/Gate remain in a small compatibility shim.
+        for helper in sorted((ROOT / "shared" / "cex_plugin").glob("*.py")):
+            if helper.name == "http_legacy.py":
+                continue
+            source = ((ROOT / "shared" / "cex_plugin" / "http_legacy.py")
+                      if helper.name == "http.py" and config["venue"] in {"MEXC", "GATE"}
+                      else helper)
+            # MEXC/Gate keep their existing models/validation/state code.
+            if config["venue"] in {"MEXC", "GATE"} and helper.name not in {
+                "http.py", "http_pool.py", "http_diagnostics.py", "http_resolver.py"}:
+                continue
+            shutil.copyfile(source, directory / "src" / "cex_plugin" / helper.name)
         bundle = directory / "adapter.zip"
         with ZipFile(bundle, "w", compression=ZIP_DEFLATED) as output:
             for source in sorted((directory / "src").rglob("*.py")):

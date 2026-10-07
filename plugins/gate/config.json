@@ -9,7 +9,7 @@
   "symbols_error_codes": [],
   "schema": 1,
   "protocol": "p2pirate-spot-v1",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "display_name": "Gate",
   "taker_fee": "0.001",
   "credential_fields": [
