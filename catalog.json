@@ -5,59 +5,59 @@
   "plugins": [
     {
       "venue": "BINANCE",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "config": "plugins/binance/config.json",
       "adapter": "plugins/binance/adapter.zip",
-      "config_sha256": "156402fa4c233717aaaf62ae3107972ae618e17314a7362fd946709cbb4abb35",
-      "adapter_sha256": "a905d47f8805a0ce5994a5b8323d275675062f6f154d86a38878eb24034d2058"
+      "config_sha256": "4cce4048eb2ebe2e29d38d9c526ebccf42556c76d7364165aa18bb05e363705f",
+      "adapter_sha256": "f8fa6a5f9d9fbdf981ead170b3ecc27095840bbeb2fcac602a45ceb573035c64"
     },
     {
       "venue": "COINEX",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "config": "plugins/coinex/config.json",
       "adapter": "plugins/coinex/adapter.zip",
-      "config_sha256": "374d19b1209eecee1dd28fc53c6114453c7653763a5a0f3b731f62b0ed4dbd6c",
-      "adapter_sha256": "0e918a1eb1f288dcff9fd71fcfd9826c79ffd8740208c10473e3cfcf5781bb70"
+      "config_sha256": "f4e67f1a1f0908328d4004d170c74b3b369d665e0bdf5e32c4ff936d3ef7e333",
+      "adapter_sha256": "10b92b1f62bc51423db7d46be0325345c463a5995c9deb816a1ce48baa4880dc"
     },
     {
       "venue": "GATE",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "config": "plugins/gate/config.json",
       "adapter": "plugins/gate/adapter.zip",
-      "config_sha256": "968e5d4a0c381273f75a8141848103bda3db86f1dc9bbf419bda8dd05a8d8022",
-      "adapter_sha256": "52b2125973ddaebcc082d2ef4af9ecb0aeed3a0f056d7ad1e2ba83b7e95487eb"
+      "config_sha256": "8923ef1d199bc961d44492464a0540c01c333871792ee3311385183aeef89457",
+      "adapter_sha256": "2fa94903bffddc60465ce4d4012c8a99c18e9e68b9b250f4de90c1db30099c24"
     },
     {
       "venue": "KRAKEN",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "config": "plugins/kraken/config.json",
       "adapter": "plugins/kraken/adapter.zip",
-      "config_sha256": "abef676f1b818576b1b3ae4600d9c26151eaf05f35c881e403206cd09d717ad4",
-      "adapter_sha256": "879266e05b2c17ade436019dc7fe605e53a8df2cba0f328564ce70c76d1e4a97"
+      "config_sha256": "9b12df84808a5f237c61405312621bdff4c84652031073376e2ac3cd1963e2c0",
+      "adapter_sha256": "2d9e23259bbffc777c91ea86baa616513a72c456776e31a6577551cab38950a3"
     },
     {
       "venue": "MEXC",
-      "version": "0.1.0",
+      "version": "0.1.3",
       "config": "plugins/mexc/config.json",
       "adapter": "plugins/mexc/adapter.zip",
-      "config_sha256": "a3f894e7e9d4d66edd2f57f3f6d68d0e272aabcaabe008972f4dcefb36953381",
-      "adapter_sha256": "4a209bc0b9ed92cb0c7a6f1ec7b67e9e5217cf12af90e348423f79f26f7bc0ae"
+      "config_sha256": "e647b00fcd376493fe229076206b183ba11a0260e07bd1c31771aadf2ac89b3d",
+      "adapter_sha256": "d5ebcf5f37a35fdc793c4d7a11439805f4818f7d7fe6f36cca6fb7e7c5d4ca98"
     },
     {
       "venue": "POLONIEX",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "config": "plugins/poloniex/config.json",
       "adapter": "plugins/poloniex/adapter.zip",
-      "config_sha256": "dda5c612c95755ffb65c6dbbaed54de31a950d1073230250b32370a0907e080f",
-      "adapter_sha256": "2a4a35ad7385fd6c6e0a8c60e77aee4bb6d36deae67dcf123b0f377675277293"
+      "config_sha256": "ca04726dea6df8f3fba2bb67d78d8fb82fdf81af8d92dd8044df40628644e886",
+      "adapter_sha256": "959cf48a13cc0096d8512168f75e484bca02ae658f99dfb86488dbbdf10a340b"
     },
     {
       "venue": "WHITEBIT",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "config": "plugins/whitebit/config.json",
       "adapter": "plugins/whitebit/adapter.zip",
-      "config_sha256": "c3cbcc303e7af07045f8631657bfa5cccb3e32b959d38de3d03306b3faaf60bb",
-      "adapter_sha256": "70741aa463541bbed197502f5f928e5fc19355382114999699e7e11cf943a253"
+      "config_sha256": "940a9faeafa7bef219ab8d117f06e096a9c69f2d023cecc8c8449629dbeb6049",
+      "adapter_sha256": "0db9e2e275fad0954e4adf7084da52bfef3681d2793bccb91d649f000c81c46c"
     }
   ]
 }

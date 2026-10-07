@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "protocol": "p2pirate-spot-v1",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "venue": "BINANCE",
   "display_name": "Binance (experimental; untested)",
   "base_url": "https://api.binance.com",
